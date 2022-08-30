@@ -1,6 +1,5 @@
 <template>
   <div class="section">
-    <SideBar :open="isSideBarOpen" @close="closeSideBar" />
     <div class="big-logo">
       <Animation />
     </div>
@@ -13,33 +12,33 @@
           alt="OtherPlane"
         />
       </h1>
-      <p>
-        <i18n class="text" path="hero.text.main" tag="span">
-          <span
-            v-for="(link, index) in links"
-            :key="`link-${index}`"
+
+      <div class="content">
+        <i18n class="text" path="hero.description" tag="p" />
+
+        <p>
+          <a
             class="link"
             :class="{ selected: link.selected, dimmed: link.dimmed }"
-            @click="openSideBar"
-            @mouseover="selectLink(index)"
-            @mouseleave="selectLink(-1)"
+            :href="`mailto:${contactEmail}`"
+            @mouseover="toggleLink(true)"
+            @mouseleave="toggleLink(false)"
           >
             <span
-              v-for="(char, charIndex) in link.chars"
+              v-for="(char, charIndex) in link.label"
               :key="`char-${charIndex}`"
-              :ref="`char-${index}-${charIndex}`"
+              :ref="`char-${charIndex}`"
               class="link char"
               >{{ char }}</span
             >
-          </span>
-        </i18n>
-      </p>
+          </a>
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-const itemsList = ['About', 'Works', 'News/Blog', 'Contact us']
 const LEFT = -1
 const RIGHT = 1
 
@@ -47,49 +46,37 @@ export default {
   data() {
     return {
       isSideBarOpen: false,
-      selectedLink: -1,
+      selectedLink: false,
       displayLogo: true,
       displayMain: true,
+      contactEmail: 'info@otherplane.com',
     }
   },
   computed: {
-    links() {
-      return itemsList.map((link, index) => {
-        const isSelected = this.selectedLink === index
-        const otherSelected = this.selectedLink !== -1
-        return {
-          label: link,
-          selected: isSelected,
-          dimmed: !isSelected && otherSelected,
-          chars: link.split(''),
-        }
-      })
+    link() {
+      const label = 'Contact us'
+      const isSelected = this.selectedLink
+      return {
+        label,
+        selected: isSelected,
+        dimmed: !isSelected,
+        chars: label.split(''),
+      }
     },
   },
   methods: {
-    toggle() {
-      this.toggleUpdate = !this.toggleUpdate
+    toggleLink(selected) {
+      const direction = selected ? LEFT : RIGHT
+      this.animateChars(direction)
     },
-    selectLink(id) {
-      this.selectedLink = id
-      this.links.forEach((link, index) => {
-        const direction = link.selected ? LEFT : RIGHT
-        this.animateChars(index, link.label.length, direction)
-      })
-    },
-    animateChars(id, charLength, direction) {
-      for (let i = 0; i < charLength; i++) {
-        const refId = `char-${id}-${i}`
+    animateChars(direction) {
+      for (let i = 0; i < this.link.label.length; i++) {
+        const refId = `char-${i}`
         const char = this.$refs[refId]
+
         this.$gsap.killTweensOf(char)
         this.$gsap.to(char, 0.5, { scaleX: direction })
       }
-    },
-    openSideBar() {
-      this.isSideBarOpen = true
-    },
-    closeSideBar() {
-      this.isSideBarOpen = false
     },
   },
 }
