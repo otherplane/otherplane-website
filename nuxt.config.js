@@ -1,6 +1,3 @@
-import { languages } from './constants'
-import { fallbackLocale } from './default'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -112,12 +109,18 @@ export default {
   i18n: {
     // add SEO attributes in layout head for better performance
     seo: false,
-    locales: languages,
+    locales: [
+      {
+        name: 'English',
+        code: 'en',
+        iso: 'en-US',
+        isCatchallLocale: true,
+      },
+    ],
     vueI18n: {
-      fallbackLocale,
+      fallbackLocale: 'en',
       messages: {
         en: require('./locales/en.json'),
-        es: require('./locales/es.json'),
       },
     },
     detectBrowserLanguage: {
