@@ -78,13 +78,11 @@ export default {
       { rel: 'shortcut icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap',
       },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap',
       },
     ],
   },
@@ -95,21 +93,16 @@ export default {
     scss: ['~/assets/styles/main.scss', '~/assets/styles/colors.scss'],
   },
   // ...
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-i18n'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: {
-    dirs: ['~/components'],
-  },
-
+  components: true,
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     'nuxt-gsap-module',
   ],
