@@ -6,7 +6,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'new-website',
+    title: 'OtherPlane Labs',
     htmlAttrs: {
       lang: 'en',
     },
@@ -17,22 +17,22 @@ export default {
       {
         hid: 'title',
         name: 'title',
-        content: 'title',
+        content: 'OtherPlane Labs',
       },
       {
         hid: 'description',
         name: 'description',
-        content: 'description',
+        content: 'Building products and apps for the Witnet ecosystem',
       },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: 'title',
+        content: 'OtherPlane Labs',
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content: 'description',
+        content: 'Building products and apps for the Witnet ecosystem',
       },
       {
         hid: 'twitter:image',
@@ -42,17 +42,17 @@ export default {
       {
         hid: 'twitter:image:alt',
         name: 'twitter:image:alt',
-        content: 'alt',
+        content: 'OtherPlane Labs',
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'title',
+        content: 'OtherPlane Labs',
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'description',
+        content: 'Building products and apps for the Witnet ecosystem',
       },
       {
         hid: 'og:image',
@@ -67,7 +67,7 @@ export default {
       {
         hid: 'og:image:alt',
         property: 'og:image:alt',
-        content: 'EXAMPLE',
+        content: 'OtherPlane Labs',
       },
     ],
     link: [
