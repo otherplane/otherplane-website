@@ -10,7 +10,7 @@ npm run generate
 cd dist
 
 # if you are deploying to a custom domain
-echo '<domain>' > CNAME
+echo 'otherplane.com' > CNAME
 
 git init
 git add -A
