@@ -37,7 +37,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: '/',
+        content: 'https://otherplane.com/social-image.png',
       },
       {
         hid: 'twitter:image:alt',
@@ -57,29 +57,39 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/',
+        content: 'https://otherplane.com/social-image.png',
       },
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: '/',
+        content: 'https://otherplane.com/social-image.png',
       },
       {
         hid: 'og:image:alt',
         property: 'og:image:alt',
         content: 'OtherPlane Labs',
       },
+      {
+        hid: 'msapplication-TileColor',
+        property: 'msapplication-TileColor',
+        content: '#da532c',
+      },
+      { property: 'og:image:width', content: '740' },
+      { property: 'og:image:height', content: '300' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
+      },
+      { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'shortcut icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap',
       },
     ],
   },
