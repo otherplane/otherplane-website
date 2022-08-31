@@ -1,5 +1,6 @@
 {
   "hero": {
     "description": "Building products and apps for the {0} ecosystem."
-  }
+  },
+  "footer": "©2022 OtherPlane Labs. No Rights Reserved (CC0 Creative Commons License)."
 }

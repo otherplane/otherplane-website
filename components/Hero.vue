@@ -12,7 +12,6 @@
           alt="OtherPlane"
         />
       </h1>
-
       <div class="content">
         <i18n class="text" path="hero.description" tag="p">
           <Link :url="`https://witnet.io/`" label="Witnet" />
@@ -21,6 +20,7 @@
           <Link :url="`mailto:info@otherplane.com`" label="Contact us!" />
         </p>
       </div>
+      <p class="footer">{{ $t('footer') }}</p>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 44vw;
+  grid-template-columns: 1fr 45vw;
   overflow-x: initial;
 
   .big-logo {
@@ -58,6 +58,8 @@ export default {
     position: relative;
     z-index: 50;
     padding: 2vw 2vw 0 2vw;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr;
     .title {
       width: 100%;
       padding-bottom: 1.5vw;
@@ -65,6 +67,12 @@ export default {
     .text {
       padding-bottom: 1.5vw;
       line-height: 1.5;
+    }
+    .footer {
+      padding-top: 1vw;
+      margin-bottom: 1vw;
+      display: flex;
+      align-items: flex-end;
     }
   }
 }
@@ -89,6 +97,11 @@ export default {
     .main {
       padding: 16px;
       max-width: 100%;
+      .footer {
+        padding-top: 5vw;
+        margin-bottom: 1vw;
+        margin-bottom: 0;
+      }
     }
   }
 }

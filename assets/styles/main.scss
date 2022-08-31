@@ -6,11 +6,17 @@ p {
 .subtitle {
   font-size: 1.5vw;
 }
+.footer {
+  font-size: 0.8vw;
+}
 @media (max-width: 1200px) {
   p {
     font-size: 8vw;
   }
   .subtitle {
     font-size: 6vw;
+  }
+  .footer {
+    font-size: 2.8vw;
   }
 }
