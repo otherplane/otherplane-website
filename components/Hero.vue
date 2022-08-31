@@ -14,24 +14,11 @@
       </h1>
 
       <div class="content">
-        <i18n class="text" path="hero.description" tag="p" />
-
-        <p>
-          <a
-            class="link"
-            :class="{ selected: link.selected, dimmed: link.dimmed }"
-            :href="`mailto:${contactEmail}`"
-            @mouseover="toggleLink(true)"
-            @mouseleave="toggleLink(false)"
-          >
-            <span
-              v-for="(char, charIndex) in link.label"
-              :key="`char-${charIndex}`"
-              :ref="`char-${charIndex}`"
-              class="link char"
-              >{{ char }}</span
-            >
-          </a>
+        <i18n class="text" path="hero.description" tag="p">
+          <Link :url="`https://witnet.io/`" label="Witnet" />
+        </i18n>
+        <p class="subtitle">
+          <Link :url="`mailto:info@otherplane.com`" label="Contact us!" />
         </p>
       </div>
     </div>
@@ -39,45 +26,13 @@
 </template>
 
 <script>
-const LEFT = -1
-const RIGHT = 1
-
 export default {
   data() {
     return {
       isSideBarOpen: false,
-      selectedLink: false,
       displayLogo: true,
       displayMain: true,
-      contactEmail: 'info@otherplane.com',
     }
-  },
-  computed: {
-    link() {
-      const label = 'Contact us'
-      const isSelected = this.selectedLink
-      return {
-        label,
-        selected: isSelected,
-        dimmed: !isSelected,
-        chars: label.split(''),
-      }
-    },
-  },
-  methods: {
-    toggleLink(selected) {
-      const direction = selected ? LEFT : RIGHT
-      this.animateChars(direction)
-    },
-    animateChars(direction) {
-      for (let i = 0; i < this.link.label.length; i++) {
-        const refId = `char-${i}`
-        const char = this.$refs[refId]
-
-        this.$gsap.killTweensOf(char)
-        this.$gsap.to(char, 0.5, { scaleX: direction })
-      }
-    },
   },
 }
 </script>
@@ -105,20 +60,11 @@ export default {
     padding: 2vw 2vw 0 2vw;
     .title {
       width: 100%;
+      padding-bottom: 1.5vw;
     }
     .text {
-      padding-bottom: 2vw;
+      padding-bottom: 1.5vw;
       line-height: 1.5;
-    }
-  }
-  .link {
-    cursor: pointer;
-    color: $red;
-    transition: margin-left 0.5s ease-out, opacity 0.5s ease-out;
-    white-space: nowrap;
-    .char {
-      display: inline-block;
-      min-width: 0.3em;
     }
   }
 }
@@ -131,7 +77,7 @@ export default {
       display: grid;
       grid-template-columns: 20vw 1fr;
       align-items: center;
-      padding-bottom: 16px;
+      padding-bottom: 4vw;
     }
     .big-logo {
       display: none;
